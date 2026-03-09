@@ -263,6 +263,11 @@ resource vm 'Microsoft.Compute/virtualMachines@2022-03-01' = {
         enableAutomaticUpdates: false
       }
     }
+    diagnosticsProfile: {
+      bootDiagnostics: {
+        enabled: true
+      }
+    }
     priority: enableAzureSpotPricing ? 'Spot' : 'Regular'
     evictionPolicy: enableAzureSpotPricing ? 'Deallocate' : null
     billingProfile: enableAzureSpotPricing ? {
